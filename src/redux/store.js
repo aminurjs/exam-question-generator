@@ -1,9 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import examSlice from "./examSlice";
+import rootReducer from "./rootReducer";
 
 const store = configureStore({
-  reducer: {
-    examSlice: examSlice,
-  },
+  reducer: rootReducer,
 });
 export default store;
