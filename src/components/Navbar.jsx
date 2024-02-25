@@ -5,10 +5,6 @@ const navItems = [
     name: "Home",
     path: "/",
   },
-  {
-    name: "My Questions",
-    path: "/my-questions",
-  },
 ];
 
 const Navbar = () => {

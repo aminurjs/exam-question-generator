@@ -52,6 +52,7 @@ const PhysicsQuestionForm = ({ physics, updateFields }) => {
                 id="option1"
                 name="option1"
                 className="option"
+                required
                 onChange={(e) => setOption_1(e.target.value)}
               />
               <input
@@ -61,6 +62,7 @@ const PhysicsQuestionForm = ({ physics, updateFields }) => {
                 id="option2"
                 name="option2"
                 className="option"
+                required
                 onChange={(e) => setOption_2(e.target.value)}
               />
               <input
@@ -70,6 +72,7 @@ const PhysicsQuestionForm = ({ physics, updateFields }) => {
                 id="option3"
                 name="option3"
                 className="option"
+                required
                 onChange={(e) => setOption_3(e.target.value)}
               />
             </div>

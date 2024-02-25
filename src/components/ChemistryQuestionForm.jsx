@@ -51,6 +51,7 @@ const ChemistryQuestionForm = ({ chemistry, updateFields }) => {
                 type="text"
                 id="option1"
                 name="option1"
+                required
                 className="option"
                 onChange={(e) => setOption_1(e.target.value)}
               />
@@ -60,6 +61,7 @@ const ChemistryQuestionForm = ({ chemistry, updateFields }) => {
                 type="text"
                 id="option2"
                 name="option2"
+                required
                 className="option"
                 onChange={(e) => setOption_2(e.target.value)}
               />
@@ -69,6 +71,7 @@ const ChemistryQuestionForm = ({ chemistry, updateFields }) => {
                 type="text"
                 id="option3"
                 name="option3"
+                required
                 className="option"
                 onChange={(e) => setOption_3(e.target.value)}
               />

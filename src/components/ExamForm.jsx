@@ -4,6 +4,9 @@ import ExamDetailsForm from "./ExamDetailsForm";
 import PhysicsQuestionForm from "./PhysicsQuestionForm";
 import MathQuestionForm from "./MathQuestionForm";
 import ChemistryQuestionForm from "./ChemistryQuestionForm";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addExam } from "../redux/examSlice";
 
 const initial_data = {
   exName: "",
@@ -23,6 +26,8 @@ const initial_data = {
 
 const ExamForm = () => {
   const [data, setData] = useState(initial_data);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const updateFields = (fields) => {
     setData((initial) => {
@@ -41,7 +46,8 @@ const ExamForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!lastStep) return next();
-    console.log(data);
+    dispatch(addExam(data));
+    navigate("/preview");
   };
 
   return (
