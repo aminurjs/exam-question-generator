@@ -19,9 +19,6 @@ export const useMultiStepForm = (steps) => {
       return i - 1;
     });
   };
-  const goTo = (index) => {
-    setCurrentStepIndex(index);
-  };
 
   return {
     currentStepIndex,
@@ -31,6 +28,5 @@ export const useMultiStepForm = (steps) => {
     lastStep: currentStepIndex === steps.length - 1,
     next,
     prev,
-    goTo,
   };
 };
