@@ -31,9 +31,13 @@ const formSlice = createSlice({
   initialState,
   reducers: {
     updateForm: (state, { payload }) => {
-      state.form = {
-        ...payload,
-      };
+      if (payload) {
+        state.form = {
+          ...payload,
+        };
+      } else {
+        state.form = initialForm;
+      }
     },
   },
 });

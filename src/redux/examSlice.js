@@ -10,12 +10,12 @@ const examSlice = createSlice({
   name: "examSlice",
   initialState,
   reducers: {
-    addExam: (state, { payload }) => {
+    submitExam: (state, { payload }) => {
       state.exam = payload;
       const exam = JSON.stringify(payload);
       sessionStorage.setItem("exam", exam);
     },
   },
 });
-export const { addExam } = examSlice.actions;
+export const { submitExam } = examSlice.actions;
 export default examSlice.reducer;
