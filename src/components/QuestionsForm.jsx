@@ -1,14 +1,19 @@
-import { useDispatch, useSelector } from "react-redux";
-import { qusTemp } from "./PhysicsQuestionForm";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { updateForm } from "../redux/formSlice";
+import { submitExam } from "../redux/examSlice";
+import { useNavigate } from "react-router-dom";
 
-const MathQuestionForm = ({ prev, next }) => {
+export const qusTemp = {
+  question: "",
+  options: { option_1: "", option_2: "", option_3: "" },
+};
+
+const QuestionsForm = ({ prev, next, subject, lastStep }) => {
+  const navigate = useNavigate();
   const { form } = useSelector((state) => state.formSlice);
-  const { math } = form;
-  console.log({ ...form });
 
-  const [questions, setQuestions] = useState(math || []);
+  const [questions, setQuestions] = useState(form[subject] || []);
   const addExam = () => {
     setQuestions([...questions, qusTemp]);
   };
@@ -25,14 +30,23 @@ const MathQuestionForm = ({ prev, next }) => {
       const option_3 = field.get(`option3_${i}`);
       return { question, options: { option_1, option_2, option_3 } };
     });
-    const updateData = { math: data };
-    dispatch(updateForm({ ...form, ...updateData }));
-
-    next();
+    let updateData = {};
+    updateData[subject] = data;
+    if (!lastStep) {
+      dispatch(updateForm({ ...form, ...updateData }));
+      return next();
+    }
+    const examPaper = { ...form, ...updateData };
+    dispatch(submitExam(examPaper));
+    dispatch(updateForm(null));
+    navigate("/preview");
   };
+
   return (
     <form onSubmit={handleSubmit}>
-      <h2 className="text-center text-xl font-bold text-gray-950 mb-2">Math</h2>
+      <h2 className="text-center text-xl font-bold text-gray-950 mb-2 capitalize">
+        {subject}
+      </h2>
       {questions.map((item, i) => (
         <div key={i} className="mb-5">
           <h4 className="font-semibold text-lg text-gray-900">
@@ -99,11 +113,11 @@ const MathQuestionForm = ({ prev, next }) => {
         </button>
 
         <button type="submit" className="btn">
-          Next
+          {!lastStep ? "Next" : "Submit"}
         </button>
       </div>
     </form>
   );
 };
 
-export default MathQuestionForm;
+export default QuestionsForm;

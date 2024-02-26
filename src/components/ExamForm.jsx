@@ -1,13 +1,10 @@
 import { useMultiStepForm } from "../hooks/useMultiStepForm";
 import ExamDetailsForm from "./ExamDetailsForm";
-import PhysicsQuestionForm from "./PhysicsQuestionForm";
-import MathQuestionForm from "./MathQuestionForm";
-import ChemistryQuestionForm from "./ChemistryQuestionForm";
+import QuestionsForm from "./QuestionsForm";
 
 const ExamForm = () => {
-  const { step, steps, currentStepIndex, prev, next } = useMultiStepForm([
-    1, 2, 3, 4,
-  ]);
+  const { step, steps, currentStepIndex, prev, next, lastStep } =
+    useMultiStepForm([1, 2, 3, 4]);
 
   return (
     <div className="p-10 max-w-screen-sm mx-auto border-gray-200 border rounded-md mt-6">
@@ -22,9 +19,30 @@ const ExamForm = () => {
       </div>
       <div className="pt-5 transition-all duration-300 ease-in-out">
         {step === 1 && <ExamDetailsForm next={next} />}
-        {step === 2 && <PhysicsQuestionForm prev={prev} next={next} />}
-        {step === 3 && <MathQuestionForm prev={prev} next={next} />}
-        {step === 4 && <ChemistryQuestionForm prev={prev} />}
+        {step === 2 && (
+          <QuestionsForm
+            prev={prev}
+            next={next}
+            lastStep={lastStep}
+            subject={"physics"}
+          />
+        )}
+        {step === 3 && (
+          <QuestionsForm
+            prev={prev}
+            next={next}
+            lastStep={lastStep}
+            subject={"math"}
+          />
+        )}
+        {step === 4 && (
+          <QuestionsForm
+            prev={prev}
+            next={next}
+            lastStep={lastStep}
+            subject={"chemistry"}
+          />
+        )}
       </div>
     </div>
   );
