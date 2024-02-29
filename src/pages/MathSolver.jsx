@@ -23,7 +23,7 @@ const MathSolver = () => {
           <textarea
             type="text"
             className="w-full rounded-md border border-gray-200"
-            placeholder="Type your equation (LaTeX format)..."
+            placeholder="Type your equation ( LaTeX format ex: e=mc^2 )..."
             onChange={(e) => setExpression(e.target.value)}
             rows={5}
           />
