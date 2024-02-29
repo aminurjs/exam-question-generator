@@ -20,7 +20,7 @@ const routes = createBrowserRouter([
         ),
       },
       { path: "/preview", element: <Preview /> },
-      { path: "/math", element: <MathSolver /> },
+      { path: "/post", element: <MathSolver /> },
       {
         path: "/login",
         element: <Login />,

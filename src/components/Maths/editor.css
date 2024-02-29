@@ -1,0 +1,66 @@
+.quill {
+  position: relative;
+}
+.ql-tooltip.ql-editing {
+  position: absolute;
+  left: 200px !important;
+  top: -10px !important;
+}
+.ql-editor {
+  padding: 20px;
+  min-height: 100px;
+}
+.ql-editor > p {
+  font-size: 16px;
+}
+.ql-toolbar {
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.ql-toolbar button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.ql-toolbar button:hover {
+  background-color: #eaeaea;
+}
+
+.ql-toolbar button.ql-active {
+  background-color: #d9d9d9;
+}
+h1 {
+  font-size: 35px;
+  font-weight: 500;
+}
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+}
+h3 {
+  font-size: 21px;
+  font-weight: 500;
+}
+h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+h5 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+ol {
+  list-style: decimal;
+}
+ul {
+  list-style: disc;
+}

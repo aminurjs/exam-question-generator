@@ -8,8 +8,8 @@ const navItems = [
     path: "/",
   },
   {
-    name: "Math Formula",
-    path: "/math",
+    name: "Post",
+    path: "/post",
   },
 ];
 
@@ -24,7 +24,7 @@ const Navbar = () => {
       <Link to="/" className="text-3xl font-medium">
         Logo
       </Link>
-      <ul className="flex gap-5">
+      <ul className="flex gap-5 list-none">
         {navItems.map((item) => (
           <li key={item.name}>
             <NavLink
