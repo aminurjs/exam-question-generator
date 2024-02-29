@@ -7,6 +7,10 @@ const navItems = [
     name: "Home",
     path: "/",
   },
+  {
+    name: "Math Formula",
+    path: "/math",
+  },
 ];
 
 const Navbar = () => {
